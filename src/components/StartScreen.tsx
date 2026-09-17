@@ -95,7 +95,7 @@ export function StartScreen() {
               id="org-name"
               value={orgName}
               onChange={(e) => setOrgName(e.target.value)}
-              placeholder="My Church"
+              placeholder="My Organization"
               disabled={busy}
             />
             <Button disabled={busy || !orgName.trim()} onClick={() => startBlank(orgName.trim())}>
