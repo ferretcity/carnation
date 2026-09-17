@@ -60,8 +60,10 @@ function renderStepBody(page: Page): string {
 }
 
 function renderOrgTree(nodes: OrgNode[]): string {
-  const root = nodes.find((n) => n.parentId === null);
-  if (!root) return "";
+  // The top level can hold several independent roles/groups, not just one
+  // root — a flat org with multiple peer groups is a valid shape.
+  const topLevel = nodes.filter((n) => n.parentId === null);
+  if (topLevel.length === 0) return "";
 
   function renderNode(node: OrgNode): string {
     const children = nodes.filter((n) => n.parentId === node.id);
@@ -80,7 +82,7 @@ function renderOrgTree(nodes: OrgNode[]): string {
     `;
   }
 
-  return `<div class="org-tree">${renderNode(root)}</div>`;
+  return `<div class="org-tree">${topLevel.map(renderNode).join("")}</div>`;
 }
 
 const STYLES = `
@@ -120,7 +122,7 @@ const STYLES = `
   .step.decision { border-color: #cf9a5c; }
   .step-text { font-size: 15px; }
   .branches { margin-top: 6px; font-size: 13px; color: var(--muted); display: flex; flex-direction: column; gap: 2px; }
-  .org-tree { display: flex; justify-content: center; overflow-x: auto; }
+  .org-tree { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; overflow-x: auto; }
   .org-node { display: flex; flex-direction: column; align-items: center; }
   .org-children { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; padding: 24px 0 0; margin: 0; }
   .org-box { border: 1px solid var(--border); background: var(--card); border-radius: 10px; padding: 8px 14px; text-align: center; min-width: 150px; }
