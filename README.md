@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="public/favicon.svg" alt="Carnation logo" width="72">
+</p>
+
 # Carnation
 
 A static, client-only editing surface for a small organization's handbook.
