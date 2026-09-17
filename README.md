@@ -1,7 +1,6 @@
 # Carnation
 
-A static, client-only editing surface for a small organization's handbook — part of
-the **ferretcity** portfolio of tools for organizational clarity.
+A static, client-only editing surface for a small organization's handbook.
 
 Carnation ships with an opinionated pillar structure:
 
@@ -57,6 +56,24 @@ pnpm build
 pnpm preview
 ```
 
+## Deploy (GitHub Pages)
+
+[`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml) builds and
+deploys `main` to GitHub Pages automatically. `vite.config.ts` sets `base: '/carnation/'`
+to match a project site at `https://<org-or-user>.github.io/carnation/` — change it if
+you fork this under a different repo name.
+
+To turn it on: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+GitHub Pages isn't available for private repos on every plan — if enabling it fails,
+either make the repo public or use an org plan that includes Pages for private repos.
+
+If you want the Drive sign-in / folder-picker to work on the deployed site, add
+`VITE_GOOGLE_CLIENT_ID` and `VITE_GOOGLE_API_KEY` as repo secrets (**Settings → Secrets
+and variables → Actions**), and add the deployed origin to the OAuth client's
+authorized JavaScript origins in Google Cloud Console. Without them, everything except
+the Drive features still works.
+
 ## License
 
-[MIT](LICENSE)
+[MIT](LICENSE). Third-party dependency licenses are in
+[`third-party-licenses/`](third-party-licenses/NOTICE.md).

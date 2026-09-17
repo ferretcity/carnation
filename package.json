@@ -1,6 +1,6 @@
 {
   "name": "carnation",
-  "description": "A handbook editor for small organizations — part of the ferretcity portfolio.",
+  "description": "A handbook editor for small organizations.",
   "private": true,
   "version": "0.1.0",
   "type": "module",
