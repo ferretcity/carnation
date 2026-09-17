@@ -1,7 +1,7 @@
 # Carnation
 
-A static, client-only editing surface for a church (or any small organization's)
-handbook — part of the **ferretcity** portfolio of tools for organizational clarity.
+A static, client-only editing surface for a small organization's handbook — part of
+the **ferretcity** portfolio of tools for organizational clarity.
 
 Carnation ships with an opinionated pillar structure:
 

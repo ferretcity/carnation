@@ -2,7 +2,7 @@
   "name": "carnation",
   "description": "A handbook editor for small organizations — part of the ferretcity portfolio.",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "license": "MIT",
   "repository": {
